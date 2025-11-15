@@ -26,7 +26,7 @@
         /* --- Title Animation Styles --- */
         .animated-title {
             /* Ensures the background of the text shines */
-            background: linear-gradient(90deg, #b8c2ff 0%, #4f46e5 10%, #4f46e5 90%, #b8c2ff 100%);
+            background: linear-gradient(90deg, #fecaca 0%, #dc2626 10%, #dc2626 90%, #fecaca 100%);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             background-clip: text;
@@ -79,16 +79,16 @@
             font-size: 0.75rem; /* text-xs - DECREASED SIZE */
             font-weight: 700; /* font-bold */
             letter-spacing: 0.05em; /* tracking-wider */
-            background: linear-gradient(135deg, #4f46e5, #a5b4fc); /* Indigo gradient */
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4); /* Shadow */
+            background: linear-gradient(135deg, #dc2626, #fca5a5); /* Red gradient */
+            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4); /* Shadow */
             animation: rotationShine 5s infinite linear;
             transform-origin: center;
         }
 
         @keyframes rotationShine {
-            0% { transform: rotate(0deg); box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4); }
-            50% { transform: rotate(1deg); box-shadow: 0 8px 15px rgba(79, 70, 229, 0.6); }
-            100% { transform: rotate(0deg); box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4); }
+            0% { transform: rotate(0deg); box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4); }
+            50% { transform: rotate(1deg); box-shadow: 0 8px 15px rgba(220, 38, 38, 0.6); }
+            100% { transform: rotate(0deg); box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4); }
         }
         
         .update-ticker {
@@ -96,21 +96,21 @@
             font-weight: 600; /* font-semibold */
             padding: 0.5rem 1rem;
             border-radius: 9999px; /* rounded-full */
-            border: 2px solid #6366f1; /* indigo-500 */
-            color: #4338ca; /* indigo-700 */
-            background-color: #f5f3ff; /* indigo-50 */
+            border: 2px solid #ef4444; /* red-500 */
+            color: #b91c1c; /* red-700 */
+            background-color: #fef2f2; /* red-50 */
             /* NEW ANIMATION: Pulsing Border */
             animation: pulseBorder 2s infinite alternate;
         }
 
         @keyframes pulseBorder {
             0% {
-                border-color: #a5b4fc; /* indigo-300 */
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+                border-color: #fca5a5; /* red-300 */
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
             }
             100% {
-                border-color: #6366f1; /* indigo-500 */
-                box-shadow: 0 0 0 6px rgba(99, 102, 241, 0);
+                border-color: #ef4444; /* red-500 */
+                box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
             }
         }
         
@@ -119,7 +119,7 @@
         /* Custom spinner animation */
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
-            border-left-color: #4f46e5;
+            border-left-color: #dc2626;
             border-radius: 50%;
             width: 18px;
             height: 18px;
@@ -131,7 +131,7 @@
             width: 1rem; /* 16px */
             height: 1rem; /* 16px */
             border-width: 2px;
-            border-left-color: #4f46e5; /* indigo-600 */
+            border-left-color: #dc2626; /* red-600 */
         }
 
         @keyframes spin {
@@ -169,9 +169,9 @@
         
         /* Style for the re-checking button state */
         .rechecking-btn {
-            background-color: #eef2ff; /* indigo-50 */
-            color: #4f46e5; /* indigo-600 */
-            border-color: #a5b4fc; /* indigo-300 */
+            background-color: #fef2f2; /* red-50 */
+            color: #dc2626; /* red-600 */
+            border-color: #fca5a5; /* red-300 */
             cursor: not-allowed;
             display: flex;
             align-items: center;
@@ -243,7 +243,7 @@
         #pin-notification-popup.show {
             transform: translate(0, 0); /* Slide in */
             /* Add a subtle glow/lift effect when shown */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(99, 102, 241, 0.6); /* Indigo glow */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(239, 68, 68, 0.6); /* Red glow */
             animation: pin-notification-glow 4s infinite alternate; /* Pulsing glow */
         }
 
@@ -266,14 +266,14 @@
 <body class="bg-gray-50 h-full text-gray-900">
     <div class="container mx-auto p-4 md:p-8 max-w-2xl">
         <header class="mb-10 pt-4">
-            
-            <a 
-                href="https://ff-linkchecker-lof.unaux.com" 
-                class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full text-gray-700 bg-gray-200 hover:bg-gray-300 transition duration-150 mb-4"
-            >
-                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path></svg>
-                Return To FF Link Checker
-            </a>
+            <div class="mb-5">
+                <a href="https://ff-linkchecker-lof.unaux.com" 
+                   class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-md text-white bg-red-600 hover:bg-red-700 transition duration-150 transform hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                   >
+                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Return FF Link Checker
+                </a>
+            </div>
             <h1 class="text-4xl font-extrabold tracking-tight animated-title">FF Link Checker</h1>
             <p class="text-lg text-gray-600 mt-2">
             
@@ -286,18 +286,17 @@
                     <span class="mr-1 align-middle"></span> Next Update: "Date Not Decided"
                 </div>
             </div>
-            
             <div id="user-info">Auth Status: Loading...</div>
         </header>
 
         <section class="mb-10 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
             <h2 class="text-2xl font-bold mb-5 text-gray-800">Add New Link</h2>
             <form id="add-link-form" class="flex flex-col gap-4">
-                <input type="text" id="link-title-input" placeholder="Link Title (e.g., Darkness Ring)" class="p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-3 focus:ring-indigo-500 transition duration-150" required>
+                <input type="text" id="link-title-input" placeholder="Link Title (e.g., Darkness Ring)" class="p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-3 focus:ring-red-500 transition duration-150" required>
                 
-                <input type="url" id="link-url-input" placeholder="URL (e.g., https://example.com)" class="p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-3 focus:ring-indigo-500 transition duration-150" required>
+                <input type="url" id="link-url-input" placeholder="URL (e.g., https://example.com)" class="p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-3 focus:ring-red-500 transition duration-150" required>
                 
-                <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-indigo-700 transition duration-200 shadow-md transform hover:scale-[1.01]">
+                <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-red-700 transition duration-200 shadow-md transform hover:scale-[1.01]">
                     Add Link
                 </button>
             </form>
@@ -323,7 +322,7 @@
             <h3 class="text-xl font-bold text-red-600 mb-3">Confirm Deletion</h3>
             <p class="text-gray-700 mb-6">
                 Do you want to remove the link: 
-                <span id="modal-link-title" class="font-semibold italic text-indigo-700 break-words"></span>?
+                <span id="modal-link-title" class="font-semibold italic text-red-700 break-words"></span>?
             </p>
             <div class="flex justify-end space-x-3">
                 <button id="cancel-btn" class="px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 font-medium transition duration-150">
@@ -338,15 +337,15 @@
     
     <div id="rename-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden z-50 flex items-center justify-center p-4 transition-opacity duration-300">
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 transform transition-transform duration-300 scale-100">
-            <h3 class="text-xl font-bold text-indigo-700 mb-4">Rename Link</h3>
+            <h3 class="text-xl font-bold text-red-700 mb-4">Rename Link</h3>
             <form id="rename-form" class="space-y-4">
                 <input type="hidden" id="rename-link-id">
                 
                 <label for="rename-title-input" class="block text-sm font-medium text-gray-700">New Link Title:</label>
-                <input type="text" id="rename-title-input" placeholder="Link Title" class="p-3 border-2 border-gray-300 rounded-lg w-full focus:outline-none focus:ring-3 focus:ring-indigo-500 transition duration-150" required>
+                <input type="text" id="rename-title-input" placeholder="Link Title" class="p-3 border-2 border-gray-300 rounded-lg w-full focus:outline-none focus:ring-3 focus:ring-red-500 transition duration-150" required>
                 
                 <label for="rename-url-input" class="block text-sm font-medium text-gray-700">New Link URL:</label>
-                <input type="url" id="rename-url-input" placeholder="URL (e.g., https://example.com)" class="p-3 border-2 border-gray-300 rounded-lg w-full focus:outline-none focus:ring-3 focus:ring-indigo-500 transition duration-150" required>
+                <input type="url" id="rename-url-input" placeholder="URL (e.g., https://example.com)" class="p-3 border-2 border-gray-300 rounded-lg w-full focus:outline-none focus:ring-3 focus:ring-red-500 transition duration-150" required>
                 
                 <p id="rename-error-message" class="text-red-500 text-sm mt-3 font-medium"></p>
 
@@ -354,7 +353,7 @@
                     <button type="button" id="rename-cancel-btn" class="px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 font-medium transition duration-150">
                         Cancel
                     </button>
-                    <button type="submit" id="rename-confirm-btn" class="px-4 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 font-bold transition duration-150 shadow-md">
+                    <button type="submit" id="rename-confirm-btn" class="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700 font-bold transition duration-150 shadow-md">
                         Save Changes
                     </button>
                 </div>
@@ -379,7 +378,7 @@
         </div>
     </div>
     
-    <div id="pin-notification-popup" class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-xl shadow-2xl p-3 hidden border-l-8 border-white" role="alert">
+    <div id="pin-notification-popup" class="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl shadow-2xl p-3 hidden border-l-8 border-white" role="alert">
         <div class="flex items-start justify-between">
             <div class="flex items-start flex-grow pr-4">
                 <svg id="pin-notification-icon" class="w-6 h-6 mt-0.5 mr-3 flex-shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19v-5a2 2 0 012-2h10a2 2 0 012 2v5m-14 0h14m-14 0a2 2 0 01-2-2v-3a2 2 0 012-2h10a2 2 0 012 2v3a2 2 0 01-2 2H5z"></path></svg>
@@ -390,7 +389,7 @@
                 </div>
             </div>
             
-            <button id="close-pin-notification-btn" type="button" class="p-1 rounded-full text-white hover:bg-indigo-500 transition duration-150 flex-shrink-0">
+            <button id="close-pin-notification-btn" type="button" class="p-1 rounded-full text-white hover:bg-red-500 transition duration-150 flex-shrink-0">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </button>
         </div>
@@ -754,8 +753,8 @@
                 badgeClasses += ' bg-green-100 text-green-700 border border-green-700 pulse-shadow-success';
             } 
             else { 
-                badgeClasses += ' bg-indigo-100 text-indigo-700 border border-indigo-700';
-                statusText = `<div class="spinner badge-spinner !border-l-indigo-700"></div> ${status}`; 
+                badgeClasses += ' bg-red-100 text-red-700 border border-red-700';
+                statusText = `<div class="spinner badge-spinner !border-l-red-700"></div> ${status}`; 
             }
             
             // --- Star Button Logic ---
@@ -783,10 +782,10 @@
             // --- Re-check Button Logic ---
             const recheckBtnClasses = isChecking 
                 ? 'rechecking-btn px-3 py-1 rounded-lg text-sm font-medium transition duration-150 flex-shrink-0 shadow-sm' 
-                : 'recheck-btn text-sm font-medium text-indigo-700 hover:bg-indigo-100 px-3 py-1 rounded-lg border border-indigo-700 transition duration-150 flex-shrink-0 shadow-sm';
+                : 'recheck-btn text-sm font-medium text-red-700 hover:bg-red-100 px-3 py-1 rounded-lg border border-red-700 transition duration-150 flex-shrink-0 shadow-sm';
             
             const recheckBtnContent = isChecking
-                ? `Re-checking... <div class="spinner badge-spinner !w-4 !h-4 !border-l-indigo-700 ml-2"></div>`
+                ? `Re-checking... <div class="spinner badge-spinner !w-4 !h-4 !border-l-red-700 ml-2"></div>`
                 : `Re-check`;
                 
             const recheckBtnDisabled = isChecking ? 'disabled' : '';
@@ -813,14 +812,14 @@
 
             const item = existingItem || document.createElement('div');
             item.id = `link-item-${linkId}`;
-            const borderClass = isStarred ? 'border-l-4 border-yellow-500' : 'border-l-4 border-indigo-500';
+            const borderClass = isStarred ? 'border-l-4 border-yellow-500' : 'border-l-4 border-red-500';
             item.className = `bg-white p-5 rounded-xl shadow-lg flex flex-col gap-4 ${borderClass}`; 
             
             item.innerHTML = `
                 <div class="flex flex-wrap items-center justify-between gap-4">
                     <div class="flex-grow min-w-0">
                         <p class="text-base font-semibold text-gray-900 truncate" title="${title}">${title}</p>
-                        <a href="${url}" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-600 truncate block hover:underline" title="${url}">${url}</a>
+                        <a href="${url}" target="_blank" rel="noopener noreferrer" class="text-sm text-red-600 truncate block hover:underline" title="${url}">${url}</a>
                     </div>
                     
                     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 flex-shrink-0 w-full sm:w-auto">
@@ -1326,7 +1325,7 @@
                     loadingLinks.innerHTML = `
                         <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg font-medium shadow-md">
                             <p class="font-bold">Error: Connection Failed</p>
-                            <p class="mt-2 text-sm">Please check your Firebase Security Rules (read access denied) for the collection path: <strong>${PUBLIC_COLLECTION_PATH}</strong></p>
+                            <p class="mt-2 text-sm">Please check your Firebase Security Rules (read access denied).</p>
                         </div>
                     `;
                 } else {
@@ -1339,7 +1338,7 @@
         }
         
         // --- Initialization ---
-        function initialize() {
+        async function initialize() {
             if (!firebaseConfig.apiKey) {
                 console.error("Firebase config is invalid. App will not initialize.");
                 if (loadingLinks) {
@@ -1354,25 +1353,13 @@
                 db = getFirestore(app);
                 auth = getAuth(app);
                 setLogLevel('Debug');
-                
-                // --- FIX: Start sign-in non-blockingly and use onAuthStateChanged listener ---
-                
-                // Start the sign-in attempt without blocking the execution thread
-                const signInPromise = typeof __initial_auth_token !== 'undefined'
-                    ? signInWithCustomToken(auth, __initial_auth_token)
-                    : signInAnonymously(auth);
-                
-                // If sign-in fails, show a clear error in the Auth Status area
-                signInPromise.catch((error) => {
-                    console.error("Firebase Sign-In failed:", error);
-                    userInfoDisplay.innerHTML = `
-                        <div class="bg-red-500 text-white persistence-status">
-                            <p class="font-bold">Authentication Failed (Network/Config)</p>
-                            <p class="mt-1 text-xs">Error: ${error.code || error.message}</p>
-                        </div>`;
-                });
 
-                // Set up the listener immediately to handle the result of the sign-in attempt
+                if (typeof __initial_auth_token !== 'undefined') {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
                         userId = user.uid;
@@ -1380,7 +1367,7 @@
                         linksCollectionRef = collection(db, PUBLIC_COLLECTION_PATH);
                         
                         const authStatus = user.isAnonymous 
-                            ? `<span class="bg-indigo-600 text-white persistence-status">Storage: (Your Data is Saved Successfully)</span>`
+                            ? `<span class="bg-red-600 text-white persistence-status">Storage: (Your Data is Saved Successfully)</span>`
                             : `<span class="bg-green-600 text-white persistence-status">Storage: (Your Data is Saved Successfully)</span>`;
 
                         userInfoDisplay.innerHTML = `${authStatus}<div class="text-xs mt-1 text-gray-500 font-mono break-all max-w-full">Current User ID: ${userId}</div>`;
@@ -1396,13 +1383,20 @@
                         console.log(`[Auto-Recheck] Periodic check loop started. Interval: ${AUTO_RECHECK_INTERVAL / 1000} seconds.`);
 
                     } else {
-                        console.log("No user signed in yet or sign-out occurred.");
+                        // --- START NEW AUTH ERROR HANDLING ---
+                        console.error("Authentication failed. Anonymous sign-in failed or is disabled.");
+                        userInfoDisplay.innerHTML = `<span class="bg-red-700 text-white persistence-status">Auth Error: Anonymous Sign-In Failed</span>`;
                         if (loadingLinks) {
-                            loadingLinks.textContent = 'Waiting for user authentication...';
+                            loadingLinks.innerHTML = `
+                                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg font-medium shadow-md">
+                                    <p class="font-bold">Error: Authentication Failed ❌</p>
+                                    <p class="mt-2 text-sm">Please check your Firebase Console to ensure **Anonymous** sign-in is enabled for your project.</p>
+                                </div>
+                            `;
                         }
+                        // --- END NEW AUTH ERROR HANDLING ---
                     }
                 });
-                // --- END FIX ---
 
             } catch (error)
             {
