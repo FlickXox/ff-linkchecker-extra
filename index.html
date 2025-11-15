@@ -266,6 +266,14 @@
 <body class="bg-gray-50 h-full text-gray-900">
     <div class="container mx-auto p-4 md:p-8 max-w-2xl">
         <header class="mb-10 pt-4">
+            
+            <a 
+                href="https://ff-linkchecker-lof.unaux.com" 
+                class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full text-gray-700 bg-gray-200 hover:bg-gray-300 transition duration-150 mb-4"
+            >
+                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path></svg>
+                Return To FF Link Checker
+            </a>
             <h1 class="text-4xl font-extrabold tracking-tight animated-title">FF Link Checker</h1>
             <p class="text-lg text-gray-600 mt-2">
             
@@ -278,6 +286,7 @@
                     <span class="mr-1 align-middle"></span> Next Update: "Date Not Decided"
                 </div>
             </div>
+            
             <div id="user-info">Auth Status: Loading...</div>
         </header>
 
@@ -1317,7 +1326,7 @@
                     loadingLinks.innerHTML = `
                         <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg font-medium shadow-md">
                             <p class="font-bold">Error: Connection Failed</p>
-                            <p class="mt-2 text-sm">Please check your Firebase Security Rules (read access denied).</p>
+                            <p class="mt-2 text-sm">Please check your Firebase Security Rules (read access denied) for the collection path: <strong>${PUBLIC_COLLECTION_PATH}</strong></p>
                         </div>
                     `;
                 } else {
@@ -1330,7 +1339,7 @@
         }
         
         // --- Initialization ---
-        async function initialize() {
+        function initialize() {
             if (!firebaseConfig.apiKey) {
                 console.error("Firebase config is invalid. App will not initialize.");
                 if (loadingLinks) {
@@ -1345,13 +1354,25 @@
                 db = getFirestore(app);
                 auth = getAuth(app);
                 setLogLevel('Debug');
-
-                if (typeof __initial_auth_token !== 'undefined') {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
                 
+                // --- FIX: Start sign-in non-blockingly and use onAuthStateChanged listener ---
+                
+                // Start the sign-in attempt without blocking the execution thread
+                const signInPromise = typeof __initial_auth_token !== 'undefined'
+                    ? signInWithCustomToken(auth, __initial_auth_token)
+                    : signInAnonymously(auth);
+                
+                // If sign-in fails, show a clear error in the Auth Status area
+                signInPromise.catch((error) => {
+                    console.error("Firebase Sign-In failed:", error);
+                    userInfoDisplay.innerHTML = `
+                        <div class="bg-red-500 text-white persistence-status">
+                            <p class="font-bold">Authentication Failed (Network/Config)</p>
+                            <p class="mt-1 text-xs">Error: ${error.code || error.message}</p>
+                        </div>`;
+                });
+
+                // Set up the listener immediately to handle the result of the sign-in attempt
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
                         userId = user.uid;
@@ -1375,12 +1396,13 @@
                         console.log(`[Auto-Recheck] Periodic check loop started. Interval: ${AUTO_RECHECK_INTERVAL / 1000} seconds.`);
 
                     } else {
-                        console.log("No user signed in yet.");
+                        console.log("No user signed in yet or sign-out occurred.");
                         if (loadingLinks) {
                             loadingLinks.textContent = 'Waiting for user authentication...';
                         }
                     }
                 });
+                // --- END FIX ---
 
             } catch (error)
             {
